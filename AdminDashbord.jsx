@@ -1,68 +1,65 @@
 import React, { useState} from 'react';
 import './AdminDashboard.css';
-import myImg from './1337.png';
+import lightModeLogo from './logo-light.png';
+import darkModeLogo from './logo-dark.png';
 import img1 from './1.jpg'
 import img2 from './2.png'
-import img3 from './2.png'
+import img3 from './3.png'
 function AdminDashboard () {
-    const [asideStyle, setAsideStyle] = useState()
-    const [cls, setCls] = useState()
-    const showAside = () => {
-       setAsideStyle({display : 'block'})
-    }
-    
-    const hideAside = () => {
-        setAsideStyle({display : 'none'})
-    }
-    const changeTheme = () => {
-        setCls('dark-theme-variables')
-    }
-    
+    const [myIcon, setMyIcon] = useState('material-icons-sharp')
+    const [theme, setTheme] = useState('lightmode')
+    const [isLightActive, setIsLightActive] = useState(true)
+    const [isDarkActive, setIsDarkActive] = useState(false)
+    const [cls, setCls] = useState(); // class of aside in media Query (for mobile) whether the menu is displayed or closed
+    const [activeIndex, setActiveIndex] = useState(0); // The side bar actove handle
 
+     const handleClick = (index) => {
+        setActiveIndex(index);
+      };
     return(
-        <body className={cls}>
+        <body className={theme === 'lightmode' ? 'light-theme-variables' : 'dark-theme-variables'}>
         <div className='container'>
-            <aside style={asideStyle}>
+            <aside className={cls}> {/* class of aside in media Query (for mobile) whether the menu is displayed or closed */}
                 <div className='top'>
                     <div className='logo'>
-                        <img src={myImg} />
+                        <img src={theme === 'lightmode' ? lightModeLogo : darkModeLogo } />
                     </div>
-                    <div className='close' onClick={hideAside} >
-                        <span className='material-icons-sharp'>close</span>
+                    <div className='close' onClick={() => setCls('closed')} >
+                        <span className={myIcon}>close</span>
                     </div>
                 </div>
                 <div className='sidebar'>
-                    <a href="#">
-                        <span className='material-icons-sharp'>grid_view</span>
+                    <a href="#" className={activeIndex === 0 ? 'active' : ''} onClick={() => handleClick(0)}>
+                        <span className={myIcon}>grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="#" className='active'>
-                        <span className='material-icons-sharp'>person_outline</span>
+                    <a href="#" className={activeIndex === 1 ? 'active' : ''} onClick={() => handleClick(1)} >
+                        <span className={myIcon}>person_outline</span>
                         <h3>Students</h3>
                     </a>
-                    <a href="#">
-                        <span className='material-icons-sharp'>inventory</span>
+                    <a href="#" className={activeIndex === 2 ? 'active' : ''} onClick={() => handleClick(2)}>
+                        <span className={myIcon}>inventory</span>
                         <h3>Vacancy Applications</h3> 
                     </a>
-                    <a href="#">
-                        <span className='material-icons-sharp'>insights</span>
+                    <a href="#" className={activeIndex === 3 ? 'active' : ''} onClick={() => handleClick(3)}>
+                        <span className={myIcon}>insights</span>
                         <h3>Analytics</h3> 
                     </a>
-                    <a href="#">
-                        <span className='material-icons-sharp'>mail_outline</span>
+                    <a href="#" className={activeIndex === 4 ? 'active' : ''} onClick={() => handleClick(4)}>
+                        <span className={myIcon}>mail_outline</span>
                         <h3>Messages</h3>
                         <span className='message-count'>26</span>
                     </a>
-                    <a href="#">
-                        <span className='material-icons-sharp'>report_gmailerrorred</span>
+                    <a href="#" className={activeIndex === 5 ? 'active' : ''} onClick={() => handleClick(5)}>
+                        <span className={myIcon}>report_gmailerrorred</span>
                         <h3>Reports</h3>
                     </a>
-                    <a href="#">
-                        <span className='material-icons-sharp'>settings</span>
+                    <a href="#" className={activeIndex === 6 ? 'active' : ''} onClick={() => handleClick(6)}>
+                        <span className={myIcon}>settings</span>
                         <h3>Settings</h3>
                     </a>
                     <a href="#">
-                        <span className='material-icons-sharp'>logout</span>
+                        <span className={myIcon}>logout</span>
                         <h3>Logout</h3>
                     </a>
                 </div>
@@ -71,7 +68,7 @@ function AdminDashboard () {
                 <h1>Dashboard</h1>
                 <div className="insights">
                     <div className='sales'>
-                        <span className='material-icons-sharp'>analytics</span>
+                        <span className={myIcon}>analytics</span>
                         <div className="middle">
                             <div className="left">
                                 <h3>Total Sales</h3>
@@ -90,7 +87,7 @@ function AdminDashboard () {
                     </div>
                     {/*----------------End of Sales -------------------------*/ }
                     <div className='expenses'>
-                        <span className='material-icons-sharp'>bar_chart</span>
+                        <span className={myIcon}>bar_chart</span>
                         <div className="middle">
                             <div className="left">
                                 <h3>Total Expenses</h3>
@@ -109,7 +106,7 @@ function AdminDashboard () {
                     </div>
                     {/*----------------End of Expenses -------------------------*/ }
                     <div className='income'>
-                        <span className='material-icons-sharp'>stacked_line_chart</span>
+                        <span className={myIcon}>stacked_line_chart</span>
                         <div className="middle">
                             <div className="left">
                                 <h3>Total Income</h3>
@@ -139,7 +136,6 @@ function AdminDashboard () {
                                 <th>Date</th>
                                 <th>Status</th>
                                 <th>Details</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -179,12 +175,12 @@ function AdminDashboard () {
             {/*-----------------------------------END OF MAIN------------------------*/}
             <div className="right">
                 <div className="top">
-                    <button onClick={showAside}  id='menu-btn'>
-                        <span className='material-icons-sharp'>menu</span>
+                    <button onClick={() => setCls('clicked')}  id='menu-btn'>
+                        <span className={myIcon}>menu</span>
                     </button>
-                    <div className="theme-toggler" onClick={changeTheme}>
-                        <span className='material-icons-sharp active'>light_mode</span>
-                        <span className='material-icons-sharp'>dark_mode</span>
+                    <div className="theme-toggler">
+                        <span className={isLightActive ? myIcon + ' active' : myIcon } onClick={() => setTheme('lightmode') + setIsLightActive(true) + setIsDarkActive(false)}>light_mode</span>
+                        <span className={isDarkActive ? myIcon + ' active' : myIcon } onClick={() => setTheme('darkmode') + setIsDarkActive(true) + setIsLightActive(false)}>dark_mode</span>
                     </div>
                     <div className="profile">
                         <div className="info">

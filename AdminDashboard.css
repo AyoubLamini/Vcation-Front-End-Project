@@ -36,6 +36,14 @@
     --color-light: rgba(0,0,0,0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
+.light-theme-variables {
+    --color-background: #f6f6f9;
+    --color-white: #fff;
+    --color-dark: #363949;
+    --color-dark-variant: #677483;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
 *{
     margin: 0;
     padding: 0;
@@ -139,8 +147,8 @@ aside .logo{
     gap: 0.8rem;
 }
 aside .logo img {
-    width: 8rem; /* its 2rem originaly*/
-    height: 3rem;
+     /* its 2rem originaly*/
+    height: 5rem;
 }
 aside .close{
     display: none;
@@ -397,9 +405,11 @@ main .recent-orders a {
         width: 94%;
         grid-template-columns: 7rem auto 23rem;
     }
-    aside.logo h2{
-        display: none;
-    }
+    aside .logo img {
+       width: 9rem;
+       margin-left: -1rem;
+       transition: all 300ms ease;
+   }
     aside .sidebar h3{
         display: none;
     }
@@ -428,8 +438,8 @@ main .recent-orders a {
     main table thead tr th:first-child {
         display: none;
     }
-    main table tbody tr th:last-child,
-    main table tbody tr th:first-child {
+    main table tbody tr td:last-child,
+    main table tbody tr td:first-child {
         display: none;
     }
 }
@@ -451,13 +461,20 @@ main .recent-orders a {
         display: none; /* We gonna use Javascript to show it */
         animation: showMenu 400ms ease forwards;
     }
+    .clicked{
+        display: block; /* when clicking on menu button The aside gets this class */
+    }
+    .closed{
+        display: none; /* when clicking on menu close The aside gets this class  */
+    }
+    
     @keyframes showMenu {
         to{
             left: 0;
         }
     }
     aside .logo{
-       margin-left: 1rem; 
+       margin-left: 4rem; 
     }
     aside .logo h2{
         display: inline;
