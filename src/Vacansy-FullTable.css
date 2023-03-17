@@ -1,0 +1,66 @@
+@media screen and (min-width: 1481px) {
+    .applications{
+        width: 112%;
+    }
+}
+table {
+    user-select:text;
+}
+table .table-rows:hover{
+    outline: var(--color-primary) 1.5px solid;
+    border-radius: 4px;
+    transition: outline 100ms;
+    cursor: pointer;
+}
+table .decision{
+        position: relative;
+        bottom: 10px;
+        animation: showDesision 150ms ease-in-out forwards;
+}
+.closed{
+    display: none;
+}
+.clicked{
+    display: table-row;
+}
+@keyframes showDesision {
+    to{
+        bottom: 0px;
+    }
+}
+table tr td button{
+        text-align: center;
+        background: transparent;
+        cursor: pointer;
+        
+        
+}
+.approve{
+    outline: 1.8px solid var(--color-success-variant);
+    width: 100%;
+    height: 100%;
+    color: var(--color-success-variant);
+    border-radius: 4px;
+    transition: all 300ms;
+}
+.approve:hover{
+    color: var(--color-white);
+    background-color: var(--color-success-variant);
+}
+.decline{
+    outline: 1.8px solid var(--color-danger-variant) ;
+    width: 100%;
+    height: 100%;
+    color: var(--color-danger-variant);
+    border-radius: 4px;
+    transition: all 300ms;
+}
+.decline:hover{
+    color: var(--color-white);
+    background-color: var(--color-danger-variant);
+}
+
+
+
+
+   
