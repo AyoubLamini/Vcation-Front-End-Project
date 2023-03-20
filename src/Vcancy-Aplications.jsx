@@ -6,7 +6,7 @@ import {SideBar} from './Dashboard-Sidebar'
 import { RightTopBar } from './Dashboard-Right'; 
 import { AsideTop } from './Dashboard-Aside-Top'; 
 import { VacancyTable } from './Vacansy-FullTable';
-function AdminDashboard () {
+function VacancyApplications () {
     const [theme, setTheme] = useState('lightmode')
     const [isLightActive, setIsLightActive] = useState(true)
     const [isDarkActive, setIsDarkActive] = useState(false)
@@ -46,4 +46,4 @@ function AdminDashboard () {
         
     )
 }
-export default AdminDashboard;
+export default VacancyApplications;

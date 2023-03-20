@@ -1,8 +1,5 @@
-import React, { useState} from 'react';
-
 export const MainTable = () => {
 return(
-    <div className="recent-applications">
                     <table className='dashboard-table'>
                         <thead>
                             <tr>
@@ -44,8 +41,8 @@ return(
                             </tr>
                         </tbody>
                     </table>
-                    <a href="#">Show All</a>
-                    </div> 
+                    
+    
                 
 )
 }

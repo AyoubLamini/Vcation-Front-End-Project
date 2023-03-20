@@ -431,13 +431,10 @@ main .recent-applications a {
     }
     main .recent-applications{
         width: 94%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 2rem 0 0 8.8rem;
+        margin: 2rem 0 0 0;
     }
     main .recent-applications table {
-        width: 83vw;
+        width: 130%;
     }
 
     main .recent-applications .dashboard-table thead tr th:first-child { /* used dashboard-table class because I want this style to be applied on recent applications table only */

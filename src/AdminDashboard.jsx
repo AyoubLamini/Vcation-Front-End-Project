@@ -28,8 +28,12 @@ function AdminDashboard () {
                 <main>
                     <h1>Dashboard</h1>
                     <MainStatistics />
-                         <h2>Recent Applications</h2>
-                         <MainTable />
+                    <div className="recent-applications">
+                    <h2>Recent Applications</h2>
+                    <MainTable />
+                    <a href="#">Show All</a>
+                    </div>
+                         
                 </main>
                 <div className="right">
                 <RightTopBar
